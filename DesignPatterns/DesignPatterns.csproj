@@ -6,9 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PatternChainOfResponsibility\PatternChainOfResponsibility.csproj" />
     <ProjectReference Include="..\PatternFactoryMethod\PatternFactoryMethod.csproj" />
     <ProjectReference Include="..\PatternSingleton\PatternSingleton.csproj" />
     <ProjectReference Include="..\PatternStrategy\PatternStrategy.csproj" />
+    <ProjectReference Include="..\PatternTemplateMethod\PatternTemplateMethod.csproj" />
   </ItemGroup>
 
 </Project>

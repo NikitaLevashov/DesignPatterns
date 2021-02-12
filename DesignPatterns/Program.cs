@@ -1,6 +1,8 @@
-﻿using PatternFactoryMethod;
+﻿using PatternChainOfResponsibility;
+using PatternFactoryMethod;
 using PatternSingleton;
 using PatternStrategy;
+using PatternTemplateMethod;
 using System;
 using OperatingSystem = PatternSingleton.OperatingSystem;
 
@@ -43,9 +45,31 @@ namespace DesignPatterns
             controller.Index();
 
             Console.ReadKey();
-            
-            // Реализация паттерна Template Method
 
+            // Реализация паттерна Template Method
+            var meatPie = new MeatPie();
+            var cherryPie = new CherryPie();
+
+            Console.WriteLine(meatPie);
+            meatPie.Cook();
+          
+            Console.WriteLine(cherryPie);
+            cherryPie.Cook();
+
+            Console.ReadLine();
+
+            // Реализация паттерна Chain of responsibility
+            Receiver receiver = new Receiver(false, true, true);
+
+            PaymentHandler bankPaymentHandler = new BankPaymentHandler();
+            PaymentHandler moneyPaymentHadler = new MoneyPaymentHandler();
+            PaymentHandler paypalPaymentHandler = new PayPalPaymentHandler();
+            bankPaymentHandler.Successor = paypalPaymentHandler;
+            paypalPaymentHandler.Successor = moneyPaymentHadler;
+
+            bankPaymentHandler.Handle(receiver);
+
+            Console.ReadLine();
 
 
 
